@@ -5,7 +5,7 @@ A deno package that allows you to run a command, specifying one or more environm
 ## Installation
 
 ```shell
-deno install --allow-read --allow-run https://deno.land/x/with_env@v0.0.1/with-env.ts
+deno install --allow-read --allow-run https://deno.land/x/with_env@v1.0.0/with-env.ts
 ```
 
 ## Usage
