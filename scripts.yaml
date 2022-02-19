@@ -1,0 +1,14 @@
+scripts:
+  compile:
+    desc: Compiles binaries
+    cmd:
+      - mkdir -p dist
+      - deno bundle --import-map ./vendor/import_map.json with-env.ts > ./dist/with-env.bundle.js
+      - deno compile --output ./dist/bin/aarch64-apple-darwin/with-env --target aarch64-apple-darwin --allow-read --allow-run ./dist/with-env.bundle.js
+      - deno compile --output ./dist/bin/x86_64-apple-darwin/with-env --target x86_64-apple-darwin --allow-read --allow-run ./dist/with-env.bundle.js
+      - deno compile --output ./dist/bin/x86_64-pc-windows-msvc/with-env --target x86_64-pc-windows-msvc --allow-read --allow-run ./dist/with-env.bundle.js
+      - deno compile --output ./dist/bin/x86_64-unknown-linux-gnu/with-env --target x86_64-unknown-linux-gnu --allow-read --allow-run ./dist/with-env.bundle.js
+  vendor:
+    desc: Vendor dependencies
+    cmd:
+      - deno vendor --force with-env.ts
